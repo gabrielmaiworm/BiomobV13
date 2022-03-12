@@ -1,0 +1,9 @@
+export enum Tipo {
+  PESSOA_FISICA = 'PESSOA_FISICA',
+
+  PESSOA_JURIDICA = 'PESSOA_JURIDICA',
+
+  ONG = 'ONG',
+
+  ASSOCIACAO = 'ASSOCIACAO',
+}

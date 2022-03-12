@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20220312120912",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "item",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imagem",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "categoriaItem",
+      "fieldType": "CategoriaItem",
+      "fieldValues": "ALIMENTO,ACESSIBILIDADE,ELETRODOMESTICO,FERRAMENTAS,HIGIENE,INFANTIL,INFORMATICA,LIMPEZA,LIVROS,MONETARIO,MOVEIS,PAPELARIA,SAUDE,UTILITARIO,VESTUARIO"
+    },
+    {
+      "fieldName": "unidadeMedida",
+      "fieldType": "UnidadeMedida",
+      "fieldValues": "CARTELA,CENTO,CENTIMETRO,CAIXA,DUZIA,EMBALAGEM,QUILOGRAMA,KIT,LITRO,METRO,METRO_CUBICO,PECA,TONELADA,UNIDADE,VALOR"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Item",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "estoque",
+      "otherEntityRelationshipName": "item",
+      "ownerSide": false,
+      "relationshipName": "estoque",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

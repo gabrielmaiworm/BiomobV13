@@ -1,0 +1,121 @@
+
+
+
+entity CadastroUser {
+	nome String
+    telefone String
+    tipo Tipo
+	pais String,
+	estado String
+    cidade String
+    bairro String
+    cep String
+    logradouro String
+    numero Integer
+    complemento String
+}
+
+
+
+entity Item {
+	nome String
+	descricao String
+    imagem ImageBlob
+    categoriaItem CategoriaItem
+    unidadeMedida UnidadeMedida
+}
+entity Estoque {
+	quantidade Integer
+}
+
+entity CadastroDoacao {
+	doacaoAnonima Boolean,
+    realizaEntrega Boolean,
+	dataDoacao Instant,
+	logradouro String,
+    numero Integer,
+    bairro String,
+    cidade String,
+    cep String,
+    estado String,
+    pais String,
+    complemento String
+   
+}
+entity Solicitacao {
+	solicitante String,
+	anonima Boolean,
+	dataSolicitacao Instant,
+    enderecoEntrega String,
+    localDeEntrega String,
+    dataAprovacao LocalDate,
+    aprovado Boolean,
+    ativa Boolean
+}
+
+enum UnidadeMedida {
+	CARTELA, CENTO, CENTIMETRO,
+    CAIXA, DUZIA, EMBALAGEM, 
+	QUILOGRAMA, KIT, LITRO,
+    METRO, METRO_CUBICO, PECA,
+    TONELADA, UNIDADE, VALOR
+}
+
+enum CategoriaItem {
+	ALIMENTO, ACESSIBILIDADE, ELETRODOMESTICO, FERRAMENTAS,
+    HIGIENE, INFANTIL, INFORMATICA, LIMPEZA, LIVROS, MONETARIO,
+    MOVEIS, PAPELARIA, SAUDE, UTILITARIO, VESTUARIO
+}
+
+enum Tipo {
+	PESSOA_FISICA, PESSOA_JURIDICA, ONG, ASSOCIACAO
+}
+entity Acao {
+	dataCriacao Instant,
+	usuarioCriacaoAcao String,
+	pendente Boolean,
+    dataExecucaoAcao LocalDate,
+    ativa Boolean,
+    foto Blob,
+    observacoes String
+   
+}
+
+	relationship OneToOne {
+	CadastroUser{user} to User
+    
+	}
+
+	relationship OneToOne{
+    Acao to CadastroDoacao
+    }
+    
+    relationship ManyToOne{
+    Acao{solicitante} to Solicitacao
+    }
+    
+      relationship OneToOne{
+    Acao to CadastroUser
+    }
+    
+    
+    
+    relationship ManyToOne{
+	CadastroDoacao{nome} to CadastroUser
+}
+
+    relationship OneToOne{
+	Estoque to Item
+}
+    
+      relationship ManyToOne{
+	CadastroDoacao{descricao} to Estoque
+}
+
+    relationship ManyToOne{
+	Solicitacao{nome} to CadastroUser
+}
+    
+      relationship ManyToOne{
+	Solicitacao{descricao} to Estoque
+}
