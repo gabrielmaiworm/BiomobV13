@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220312120913",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "estoque",
+  "fields": [
+    {
+      "fieldName": "quantidade",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Estoque",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "item",
+      "otherEntityRelationshipName": "estoque",
+      "ownerSide": true,
+      "relationshipName": "item",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

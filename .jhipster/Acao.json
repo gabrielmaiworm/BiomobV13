@@ -1,0 +1,66 @@
+{
+  "applications": "*",
+  "changelogDate": "20220312120916",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "acao",
+  "fields": [
+    {
+      "fieldName": "dataCriacao",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "usuarioCriacaoAcao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pendente",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "dataExecucaoAcao",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "ativa",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "foto",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "observacoes",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Acao",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "cadastroDoacao",
+      "otherEntityRelationshipName": "acao",
+      "ownerSide": true,
+      "relationshipName": "cadastroDoacao",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "cadastroUser",
+      "otherEntityRelationshipName": "acao",
+      "ownerSide": true,
+      "relationshipName": "cadastroUser",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "solicitacao",
+      "otherEntityRelationshipName": "acao",
+      "relationshipName": "solicitante",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
